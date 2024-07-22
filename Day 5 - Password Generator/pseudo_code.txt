@@ -1,0 +1,54 @@
+# How to make this random?
+# generate letters, numbers, and symbols first
+# put them into password in a random order
+# pseudo code
+# get the size of the password and amount of number/symbol/letters
+# random generate if next character is one of those 3
+# *** figure out how to remove that from the queue
+    # pregenerate each in a full string, and slowly get rid of it...
+        # get index of string and get full size, if string dosent == ""
+            # if string == "", continue to different
+
+
+
+
+# 2 letters: ab
+# 2 numbers: 12
+# 2 symbols: #$
+
+
+# random combination of characters:
+
+
+# # trial 1
+# step 1: randomly pick a list
+#     picked string "letters"
+# step 2: randomly pick a character from the string
+#     picked character "2"
+# step 3: add character to password
+#     hard_password += character(2)
+# step 4: repeat until all strings are empty
+
+
+# # trial 2
+# step 1: randomly pick string
+#     picked "numbers"
+# step 2: check if string is empty
+#     2a: if yes,
+#     2b: if no, get random charcter from string
+
+
+# # trial 3
+# step 1: add all strings together
+
+
+# loop through array, pop random portion of string
+
+
+
+
+
+
+
+
+
