@@ -13,7 +13,6 @@ lives = 6
 
 #TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
 print(hangman_art.logo)
-print(f"word is {chosen_word}")
 
 #Create blanks
 display = []
