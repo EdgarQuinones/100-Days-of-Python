@@ -13,17 +13,18 @@ lives = 6
 
 #TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
 print(hangman_art.logo)
+print(f"word is {chosen_word}")
 
 #Create blanks
 display = []
 for _ in range(word_length):
     display += "_"
 
+    guessed_letters = []
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
 
     #TODO-4: - If the user has entered a letter they've already guessed, print the letter and let them know.
-    guessed_letters = []
 
     if guess in guessed_letters:
         print(f"'{guess}' was already guessed")
