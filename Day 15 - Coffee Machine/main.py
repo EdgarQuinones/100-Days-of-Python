@@ -21,7 +21,7 @@ def enough_money(coffee_type):
     if proper amount of money is paid. Otherwise, coffee is not given."""
     
     price_of_coffee = MENU[coffee_type]["cost"]
-    print(f"{coffee_type}s costs ${price_of_coffee}")
+    print(f"{coffee_type}s costs ${price_of_coffee:.2f}")
     print("Please insert coins.")
     quarters = int(input("How many quarters?: "))
     dimes = int(input("How many dimes?: "))
@@ -38,9 +38,9 @@ def enough_money(coffee_type):
         global profit
         profit += price_of_coffee
 
-        change = "%.2f" % round(payment - price_of_coffee, 2)
+        change = payment - price_of_coffee
         if float(change) > 0:
-            print(f"Here is ${change} in change.")
+            print(f"Here is ${change:.2f} in change.")
 
         print(f"Here is your {coffee_type}, Enjoy!")
         return True
