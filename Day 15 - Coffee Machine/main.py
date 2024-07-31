@@ -9,6 +9,7 @@ from resources import coffee_resources
 
 def print_report():
     """Prints total ingredients remaining, along with total profit."""
+    
     print(f"Water : {coffee_resources["water"]}ml")
     print(f"Milk : {coffee_resources["milk"]}ml")
     print(f"Coffee : {coffee_resources["coffee"]}g")
@@ -18,6 +19,7 @@ def print_report():
 def process_payment(coffee_type):
     """Tells the user how much is owed, and gives change back
     if proper amount of money is paid. Otherwise, coffee is not given."""
+    
     price_of_coffee = MENU[coffee_type]["cost"]
     print(f"{coffee_type}s costs ${price_of_coffee}")
     print("Please insert coins.")
@@ -49,6 +51,7 @@ def process_payment(coffee_type):
 
 def make_coffee(water_required, milk_required, coffee_required):
     """Removes ingredients used to make the coffee."""
+    
     coffee_resources["water"] -= water_required
     coffee_resources["milk"] -= milk_required
     coffee_resources["coffee"] -= coffee_required
@@ -57,6 +60,7 @@ def make_coffee(water_required, milk_required, coffee_required):
 def get_coffee(coffee_type):
     """Gets coffee type user chooses and checks if there are enough
     resources, otherwise will prompt user again."""
+    
     milk_required = 0
     if coffee_type != "espresso":
         milk_required = MENU[coffee_type]["ingredients"]["milk"]
@@ -79,11 +83,9 @@ def get_coffee(coffee_type):
         enough_resources = False
 
     if enough_resources:
-        enough_money = process_payment(coffee_type)
-
-        if enough_money:
+        if process_payment(coffee_type):
             make_coffee(water_required, milk_required, coffee_required)
-
+            
 
 profit = 0
 machine_on = True
