@@ -16,7 +16,7 @@ def print_report():
     print(f"Money : ${profit}")
 
 
-def process_payment(coffee_type):
+def enough_money(coffee_type):
     """Tells the user how much is owed, and gives change back
     if proper amount of money is paid. Otherwise, coffee is not given."""
     
@@ -82,9 +82,8 @@ def get_coffee(coffee_type):
         print("Sorry there is not enough coffee.")
         enough_resources = False
 
-    if enough_resources:
-        if process_payment(coffee_type):
-            make_coffee(water_required, milk_required, coffee_required)
+    if enough_resources and enough_money(coffee_type):
+        make_coffee(water_required, milk_required, coffee_required)
             
 
 profit = 0
