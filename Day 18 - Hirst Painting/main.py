@@ -33,6 +33,8 @@ colormode(255)
 tim = Turtle()
 new_y = -300
 tim.up()
+tim.hideturtle()
+tim.speed("fastest")
 for _ in range(10):
     tim.setx(-300)
     tim.sety(new_y)
