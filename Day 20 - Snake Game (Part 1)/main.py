@@ -13,10 +13,10 @@ snake = Snake()
 
 
 screen.listen()
-screen.onkey(snake.up, "w")
-screen.onkey(snake.left, "a")
-screen.onkey(snake.down, "s")
-screen.onkey(snake.right, "d")
+screen.onkeypress(fun=snake.up, key="w")
+screen.onkeypress(fun=snake.left, key="a")
+screen.onkeypress(fun=snake.down, key="s")
+screen.onkeypress(fun=snake.right, key="d")
 
 game_over = False
 while not game_over:
