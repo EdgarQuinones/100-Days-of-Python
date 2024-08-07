@@ -1,0 +1,25 @@
+What components do you need to keep in mind
+when building the game Pong?
+
+1. 2 paddles that can be moved by a player or 1 player/ 1 computer
+2. a ball that bounces on the top/bottom walls but game ends when
+it goes through left or right wall
+3. Scoreboard tracking both players score
+4. Colors and shape
+
+extra:
+if 2nd paddle is computer, must have it track ball and bounce back
+to player. increase speed maybe?
+
+Class: Paddle
+    player can move paddle
+Class: ComputerPaddle
+    computer paddle follows ball
+Class: Scoreboard
+    track score for both sides
+Class: Ball
+    bounce on top/bottom walls
+    bounce on paddles
+    move ball if it hits wall
+
+Then main file to put all together
