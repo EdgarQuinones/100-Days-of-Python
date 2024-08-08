@@ -1,0 +1,24 @@
+Player:
+up() - moves x units per press
+reset() - moves back to starting position
+
+CarManager:
+__init__:
+color
+y position (between 2 spots(270, -270)
+30 cars
+move() - move left x units until it reaches xcor,
+then new randon y position between (310 , random y)
+
+Scoreboard:
+text - top right
+increase level() - level += 1
+
+Main:
+Loop() - forloop of all cars moving
+if player collides with any cars:
+    score.game over()
+else:
+    score.score
+    car manager. Speedup
+    car. Reset
