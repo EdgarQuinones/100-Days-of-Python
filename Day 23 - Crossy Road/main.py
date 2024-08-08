@@ -32,10 +32,12 @@ border.color("black")
 make_line(-300, 270)
 make_line(-300, -260)
 
+
 # Sets up user input
 screen.listen()
 screen.onkeypress(key='w', fun=player.move)
 
+# Game Loop
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
