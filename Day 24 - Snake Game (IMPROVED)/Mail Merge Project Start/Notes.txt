@@ -1,0 +1,4 @@
+Steps to generating all letters:
+1. extract names from file and put into list - readlines()
+2. Replace [name] in example file with name - replace() and file i/o
+3. name file based on name and put in output directory - file i/o
