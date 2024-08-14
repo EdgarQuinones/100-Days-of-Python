@@ -26,7 +26,7 @@ def reset_timer():
     reps = 1
     count_down(0)
     canvas.itemconfig(timer_text, text=STARTING_TIMER)
-    title_label.config(text="Timer")
+    title_label.config(text="Timer", fg="Black")
     checkmark_label["text"] = ""
 
 
