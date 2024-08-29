@@ -1,8 +1,8 @@
 import os
 
 parameters = {
-    "app_key": os.environ["FLIGHT_API_KEY"],
-    "password": os.environ["FLIGHT_PASSWD"],
+    "app_key": os.getenv("FLIGHT_API_KEY"),
+    "password": os.getenv("FLIGHT_PASSWD"),
 }
 
 
@@ -12,6 +12,6 @@ class FlightSearch:
         pass
 
     def get_code(self, city):
-        code = "more tests"
+        code = "hehe"
 
         return code

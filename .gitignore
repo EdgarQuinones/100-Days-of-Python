@@ -19,6 +19,7 @@ env/
 # Ignore log files and temporary files
 *.log
 *.tmp
+*.idea
 
 # Ignore coverage reports
 htmlcov/

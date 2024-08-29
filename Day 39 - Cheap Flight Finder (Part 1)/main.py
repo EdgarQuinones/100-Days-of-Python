@@ -1,20 +1,21 @@
 # This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 
 import os
-
 import requests
-
 from data_manager import DataManager
 from flight_search import FlightSearch
+from dotenv import load_dotenv
 
-sheety_endpoint = os.environ["SHEETY_ENDPOINT"]
+load_dotenv()
+
+sheety_endpoint = os.getenv("SHEETY_ENDPOINT")
 
 sheety_header = {
     "content-type": "application/json",
-    # "Authorization": os.environ["TOKEN"]
+    "Authorization": os.getenv("TOKEN")
 }
 
-response = requests.get(url=sheety_endpoint)
+response = requests.get(url=sheety_endpoint, headers=sheety_header)
 response.raise_for_status()
 sheet_data = response.json()["prices"]
 cities = []

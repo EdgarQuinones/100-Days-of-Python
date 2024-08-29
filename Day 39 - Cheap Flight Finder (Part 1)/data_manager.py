@@ -4,7 +4,7 @@ import requests
 
 sheety_header = {
     "content-type": "application/json",
-    # "Authorization": os.environ["TOKEN"]
+    "Authorization": os.getenv("TOKEN")
 }
 
 
@@ -26,3 +26,4 @@ class DataManager:
             response = requests.put(url=sheety_put_endpoint, headers=sheety_header, json=sheety_parameters)
             response.raise_for_status()
             new_data = sheet_data[index]['iataCode']
+            print(f"({index}). Call Sent")
