@@ -1,0 +1,43 @@
+# Ignore Python compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+.env/
+
+# Ignore environment variable files
+*.env
+
+# Ignore PyCharm project files
+.idea/
+
+# Ignore log files and temporary files
+*.log
+*.tmp
+
+# Ignore coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Ignore build directories
+build/
+dist/
+*.egg-info/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore Python egg files
+*.egg
+.eggs/
+``
