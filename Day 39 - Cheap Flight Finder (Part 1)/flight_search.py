@@ -1,17 +1,16 @@
 import os
-
-parameters = {
-    "app_key": os.getenv("FLIGHT_API_KEY"),
-    "password": os.getenv("FLIGHT_PASSWD"),
-}
-
+import requests
 
 class FlightSearch:
     # This class is responsible for talking to the Flight Search API.
     def __init__(self):
-        pass
+        self._api_key = os.getenv("FLIGHT_API_KEY")
+        self._api_secret = os.getenv("FLIGHT_PASSWD")
+        self._token = ""
 
     def get_code(self, city):
-        code = "hehe"
+        code = ""
+
+
 
         return code
