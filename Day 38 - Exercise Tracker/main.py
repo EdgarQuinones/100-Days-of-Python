@@ -1,6 +1,9 @@
 from datetime import datetime
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 query = input("Tell me about your exercises: ")
 

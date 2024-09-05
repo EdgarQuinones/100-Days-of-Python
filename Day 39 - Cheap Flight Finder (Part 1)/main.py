@@ -8,11 +8,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-sheety_endpoint = os.getenv("SHEETY_ENDPOINT")
+sheety_endpoint = os.environ["SHEETY_ENDPOINT"]
 
 sheety_header = {
     "content-type": "application/json",
-    "Authorization": os.getenv("TOKEN")
+    "Authorization": os.environ["TOKEN"]
 }
 
 response = requests.get(url=sheety_endpoint, headers=sheety_header)
