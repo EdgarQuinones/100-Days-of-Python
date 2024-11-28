@@ -7,6 +7,12 @@ import pyperclip
 
 # ---------------------------- FIND INFORMATION ------------------------------- #
 def find_password():
+    """
+    Searches for the password for the website
+    the user specified in the JSON file, and returns the password for that website.
+
+    If no website is found, it outputs an error message stating nothing was found.
+    """
     website = entry_website.get()
     try:
         with open("data.json", "r") as file:
@@ -34,6 +40,14 @@ symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 
 def generate_password():
+    """
+    Using a password generator algorithm, the method creates a random password
+    using uppercase/lowercase letters, numbers, and symbols, leading to
+    a random, completely unique password everytime.
+
+    When the user clicks "Generate Password", it is also automatically copied to
+    their clipboard, in case they want to use it right away.
+    """
     password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
     password_letters = [choice(letters) for _ in range(randint(8, 10))]
     password_numbers = [choice(numbers) for _ in range(randint(2, 4))]
@@ -53,6 +67,15 @@ def generate_password():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_password():
+    """
+    When the user inputs a website a password, they can save it with the
+    "add" button. It will create a new JSON file, and add it there. It
+    will replace repeats, but it is CASE SENSITIVE, so 'facebook' and
+    'Facebook' are NOT the same.
+
+    NOTE: It is highly recommended if you use this, to encrypt the file in between
+    uses so your passwords aren't stored in plain text.
+    """
     website = entry_website.get()
     email = entry_email_uname.get()
     password = entry_password.get()
