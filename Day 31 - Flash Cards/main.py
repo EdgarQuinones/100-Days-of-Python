@@ -1,5 +1,8 @@
 import random
+import time
 import tkinter as tk
+from contextlib import nullcontext
+from email.policy import default
 from tkinter import *
 import pandas
 
@@ -7,17 +10,27 @@ BACKGROUND_COLOR = "#B1DDC6"
 current_card = {}
 to_learn = {}
 
+"""
+Trys to find the words_to_learn file 
+containing all the words the user got wrong,
+if it is not found, it will use a brand new 
+list.
+"""
 try:
     data = pandas.read_csv("data/words_to_learn.csv")
-except FileNotFoundError:
+except (pandas.errors.EmptyDataError, FileNotFoundError):
     original_data = pandas.read_csv("data/japanese_words.csv")
     to_learn = original_data.to_dict(orient="records")
 else:
     to_learn = data.to_dict(orient="records")
 
-
 # ---------------------------- CREATE FLASH CARDS ------------------------------- #
 def next_card():
+    """
+    Goes to the next card in the deck, shows the question side,
+    waits 3 seconds, and then calls the flip_card function
+    which flips it to the answer side
+    """
     global current_card, flip_timer
 
     window.after_cancel(flip_timer)
@@ -29,17 +42,32 @@ def next_card():
 
     flip_timer = window.after(3000, flip_card)
 
-
 def is_known():
+    """
+    If the user correctly chooses the card, it will
+    be removed from the "to_learn" dictionary. Once
+    the user finishes the current list of cards, it
+    will leave a list of words that need to be learned
+    """
     to_learn.remove(current_card)
 
-    data = pandas.DataFrame(to_learn)
-    data.to_csv("data/words_to_learn.csv", index=False)
+    word_to_learn_file = pandas.DataFrame(to_learn)
+    word_to_learn_file.to_csv("data/words_to_learn.csv", index=False)
 
-    next_card()
+    if len(to_learn) == 0:
+        canvas.itemconfig(canvas_image, image=card_back)
+        canvas.itemconfig(card_title, text="All Cards Learned!", fill="white")
+        canvas.itemconfig(card_word, text="Congrats", fill="white")
+        right_button["state"] = "disabled"
+        wrong_button["state"] = "disabled"
+
+    else: next_card()
 
 
 def flip_card():
+    """
+    Flips the card from the question side, to the answer side
+    """
     canvas.itemconfig(canvas_image, image=card_back)
     canvas.itemconfig(card_title, text="English", fill="white")
     canvas.itemconfig(card_word, text=current_card["English"], fill="white")
